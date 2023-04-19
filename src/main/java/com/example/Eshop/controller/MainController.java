@@ -23,9 +23,18 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(Map<String, Object> model) {
+    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
         Iterable<Product> products = productRepo.findAll();
-        model.put("products", products);
+
+        if (filter != null && !filter.isEmpty()) {
+            products = productRepo.findByTag(filter);
+        } else {
+            products = productRepo.findAll();
+        }
+
+        model.addAttribute("products", products);
+        model.addAttribute("filter", filter);
+
         return "main";
     }
 
@@ -35,18 +44,6 @@ public class MainController {
         productRepo.save(product);
 
         Iterable<Product> products = productRepo.findAll();
-        model.put("products", products);
-        return "main";
-    }
-
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<Product> products;
-        if (filter != null && !filter.isEmpty()) {
-            products = productRepo.findByTag(filter);
-        } else {
-            products = productRepo.findAll();
-        }
         model.put("products", products);
         return "main";
     }

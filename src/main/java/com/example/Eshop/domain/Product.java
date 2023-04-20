@@ -15,6 +15,8 @@ public class Product {
     private Integer cost;
     private String tag;
 
+    private String filename;
+
     public Product() {
     }
 
@@ -54,5 +56,13 @@ public class Product {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }

@@ -4,6 +4,7 @@
 <@c.page>
 <div>
     <@l.logout />
+    <span><a href="/user">User list</a></span>
 </div>
 <div>
     <form method="post">
@@ -16,7 +17,7 @@
 </div>
 <div>Список товаров</div>
 <form method="get" action="/main">
-    <input type="text" name="filter" value="">
+    <input type="text" name="filter" value=""> <#-- son of a bitch -->
     <button type="submit">Найти</button>
 </form>
 <#list products as product>

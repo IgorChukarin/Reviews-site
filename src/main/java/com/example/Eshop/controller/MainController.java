@@ -2,6 +2,7 @@ package com.example.Eshop.controller;
 
 import com.example.Eshop.domain.Product;
 import com.example.Eshop.repos.ProductRepo;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -71,6 +72,29 @@ public class MainController {
         productRepo.save(product);
         Iterable<Product> products = productRepo.findAll();
         model.put("products", products);
+        return "main";
+    }
+
+    @PostMapping("delete")
+    public String delete(@RequestParam Integer id, Model model) {
+        productRepo.deleteById(id);
+        Iterable<Product> products = productRepo.findAll();
+        model.addAttribute("products", products);
+        return "main";
+    }
+
+    @PostMapping("update")
+    public String update(@RequestParam Integer id,
+                         @RequestParam String name,
+                         @RequestParam Integer cost,
+                         @RequestParam String tag,
+                         Model model) {
+        Product productBeingChanged = productRepo.findById(id).get();
+        productBeingChanged.setName(name);
+        productBeingChanged.setCost(cost);
+        productBeingChanged.setTag(tag);
+        Iterable<Product> products = productRepo.findAll();
+        model.addAttribute("products", products);
         return "main";
     }
 }

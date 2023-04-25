@@ -24,17 +24,17 @@
     <div class="form-group mt-3">
         <form method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <input type="text" name="name" placeholder="Введите имя товара" />
+                <input type="text" name="name" placeholder="Введите имя товара" required/>
             </div>
             <div class="form-group">
-                <input type="text" name="cost" placeholder="Цена" />
+                <input type="text" name="cost" placeholder="Цена" required/>
             </div>
             <div class="form-group">
-                <input type="text" name="tag" placeholder="Тэг">
+                <input type="text" name="tag" placeholder="Тэг" required/>
             </div>
             <div class="form-group">
                 <div class="custom-file">
-                    <input type="file" name="file" id="customFile">
+                    <input type="file" name="file" id="customFile" required/>
                     <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
             </div>
@@ -50,7 +50,7 @@
     <div class="form-group mt-3">
         <form method="post" action="delete">
             <div class="form-group">
-                <input type="text" name="id" placeholder="ID">
+                <input type="text" name="id" placeholder="ID" required>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />
             <div>
@@ -64,7 +64,7 @@
     <div class="form-group mt-3">
         <form method="post" action="update">
             <div class="form-group">
-                <input type="text" name="id" placeholder="ID">
+                <input type="text" name="id" placeholder="ID" required>
             </div>
             <div class="form-group">
                 <input type="text" name="name" placeholder="new name">
@@ -93,7 +93,8 @@
         <div class="m-2">
             <span><b>id:</b> ${product.id};</span>
             <span><b>name:</b> ${product.name};</span>
-            <span><b>cost:</b> ${product.cost}</span>
+            <span><b>cost:</b> ${product.cost};</span>
+            <span><b>tag:</b> ${product.tag}</span>
         </div>
     </div>
     <#else>

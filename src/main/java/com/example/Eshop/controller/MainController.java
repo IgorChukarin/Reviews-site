@@ -85,14 +85,21 @@ public class MainController {
 
     @PostMapping("update")
     public String update(@RequestParam Integer id,
-                         @RequestParam String name,
-                         @RequestParam Integer cost,
-                         @RequestParam String tag,
+                         @RequestParam(required = false, defaultValue = "") String name,
+                         @RequestParam(required = false, defaultValue = "0") Integer cost,
+                         @RequestParam(required = false, defaultValue = "") String tag,
                          Model model) {
         Product productBeingChanged = productRepo.findById(id).get();
-        productBeingChanged.setName(name);
-        productBeingChanged.setCost(cost);
-        productBeingChanged.setTag(tag);
+        if (!name.equals("")) {
+            productBeingChanged.setName(name);
+        }
+        if (!(cost == 0)){
+            productBeingChanged.setCost(cost);
+        }
+        if (!tag.equals("")){
+            productBeingChanged.setTag(tag);
+        }
+        productRepo.save(productBeingChanged);
         Iterable<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
         return "main";

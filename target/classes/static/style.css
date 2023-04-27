@@ -1,3 +1,64 @@
-body {
-    color: #113;
+.footer {
+    padding-top: 20px;
+    width: 100%;
+    height: 70px;
+    background-color: #f2f2f2;
+    color: #ABABAB;
+    text-align: center;
+    bottom: 0;
 }
+
+.footer p {
+    display: inline-block;
+    vertical-align: auto;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.footer a {
+    display: inline-block;
+    vertical-align: auto;
+    color: #ABABAB;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+.footer a:hover{
+    color: #ABABAB;
+
+}
+
+.container {
+    width: 510px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.primeToys{
+    display: inline-block;
+    text-align: center;
+    transition: 0.2s;
+    margin-bottom: 30px;
+}
+.primeToys img{
+    display: inline-block;
+    width: 300px;
+    background: dodgerblue;
+    border-radius: 10px;
+
+}
+
+.primeToys a{
+    display: inline-block;
+    text-align: center;
+    transition: 0.5s;
+    margin-left: 88px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
+.primeToys a:hover{
+    transform: scale(1.1);
+}
+
+

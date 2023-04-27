@@ -91,10 +91,6 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
     }
-
-    public static void main(String[] args) {
-
-    }
 }
 
 

@@ -1,6 +1,7 @@
+
 <#macro page>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin: 0px; padding: 0px;">
 <head>
     <meta charset="UTF-8">
     <title>E-shop</title>
@@ -16,6 +17,7 @@
 <div class="container mt-5">
 <#nested>
 </div>
+<#include "footer.ftl">
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

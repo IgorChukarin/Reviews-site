@@ -14,7 +14,7 @@
     <div class="card my-3">
         <#if product.filename??>
         <img src="/img/${product.filename}" class="card-img-top">
-    </#if>
+        </#if>
     <div class="m-2">
         <span>${product.name}</span>
     </div>

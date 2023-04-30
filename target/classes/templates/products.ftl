@@ -11,6 +11,7 @@
 
 <div class="card-columns">
     <#list products as product>
+    <a href="/products/${product.id}">
     <div class="card my-3">
         <#if product.filename??>
         <img src="/img/${product.filename}" class="card-img-top">
@@ -21,6 +22,7 @@
     <div class="m-2">
         <b>${product.cost} ₽</b>
     </div>
+    </a>
 </div>
 <#else>
 No products

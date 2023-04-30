@@ -89,16 +89,16 @@
     <div class="card my-3">
         <#if product.filename??>
         <img src="/img/${product.filename}" class="card-img-top">
-        </#if>
-        <div class="m-2">
-            <span><b>id:</b> ${product.id};</span>
-            <span><b>name:</b> ${product.name};</span>
-            <span><b>cost:</b> ${product.cost};</span>
-            <span><b>tag:</b> ${product.tag}</span>
-        </div>
+    </#if>
+    <div class="m-2">
+        <span><b>id:</b> ${product.id};</span>
+        <span><b>name:</b> ${product.name};</span>
+        <span><b>cost:</b> ${product.cost};</span>
+        <span><b>tag:</b> ${product.tag}</span>
     </div>
-    <#else>
-    No products
-    </#list>
+</div>
+<#else>
+No products
+</#list>
 </div>
 </@c.page>

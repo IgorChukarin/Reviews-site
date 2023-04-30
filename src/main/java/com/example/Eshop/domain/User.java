@@ -23,6 +23,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    @ElementCollection(targetClass = Product.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "favourites", joinColumns = @JoinColumn(name = "user_id"))
+    private Set<Product> favouriteProducts;
+
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
     }
@@ -92,5 +96,6 @@ public class User implements UserDetails {
         return getRoles();
     }
 }
+
 
 

@@ -27,6 +27,14 @@ public class User implements UserDetails {
     @CollectionTable(name = "favourites", joinColumns = @JoinColumn(name = "user_id"))
     private Set<Product> favouriteProducts;
 
+    public Set<Product> getFavouriteProducts() {
+        return favouriteProducts;
+    }
+
+    public void setFavouriteProducts(Set<Product> favouriteProducts) {
+        this.favouriteProducts = favouriteProducts;
+    }
+
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
     }

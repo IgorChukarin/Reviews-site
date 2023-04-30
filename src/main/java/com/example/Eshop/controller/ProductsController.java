@@ -4,18 +4,22 @@ import com.example.Eshop.domain.Product;
 import com.example.Eshop.domain.Role;
 import com.example.Eshop.domain.User;
 import com.example.Eshop.repos.ProductRepo;
+import com.example.Eshop.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/products")
 public class ProductsController {
     @Autowired
     private ProductRepo productRepo;
+    @Autowired
+    private UserRepo userRepo;
 
     @GetMapping
     public String greeting(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
@@ -37,8 +41,15 @@ public class ProductsController {
     }
 
     @PostMapping("addToFavourites")
-    public String addToFavourites(@RequestParam Product product, Model model) {
-        System.out.println(product.getId());
+    public String addToFavourites(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
+        if (user == null) {
+            return "redirect:/login";
+        }
+        System.out.println(user.getUsername() + " - " + product.getId());
+        Set<Product> favouriteProducts = user.getFavouriteProducts();
+        favouriteProducts.add(product);
+        user.setFavouriteProducts(favouriteProducts);
+        userRepo.save(user);
         model.addAttribute("product", product);
         model.addAttribute("model", model);
         return "product";

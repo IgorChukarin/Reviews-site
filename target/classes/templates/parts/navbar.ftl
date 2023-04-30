@@ -26,7 +26,7 @@
                 </#if>
                 <#if isAuthorised>
                 <li class="nav-item">
-                    <a class="nav-link" href="/favourites">Favourites</a>
+                    <a class="nav-link" href="/favourites/${user.id}">Favourites</a>
                 </li>
                 </#if>
                 <li class="nav-item">

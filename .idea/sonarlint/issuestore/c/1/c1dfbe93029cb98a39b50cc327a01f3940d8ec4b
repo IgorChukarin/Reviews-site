@@ -6,7 +6,12 @@ V
 java:S4684,"@Replace this persistent entity with a simple POJO or DTO object.(•ÄÓ‹
 V
 java:S4684,"@Replace this persistent entity with a simple POJO or DTO object.(•ÄÓ‹
-Z	java:S1060"9Replace this use of System.out or System.err by a logger.(‚Š¬…ÿÿÿÿÿ8‰È…”ı0
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(‚Š¬…ÿÿÿÿÿ
+[
+java:S4684;"@Replace this persistent entity with a simple POJO or DTO object.(Š–Íşÿÿÿÿ
+[
+java:S4684;"@Replace this persistent entity with a simple POJO or DTO object.(Š–Íşÿÿÿÿ
+S	java:S106E"9Replace this use of System.out or System.err by a logger.(âíİÉÿÿÿÿÿ
 U
 java:S1128":Remove this unused import 'com.example.Eshop.domain.Role'.(Œ’’üÿÿÿÿ
 E

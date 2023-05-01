@@ -27,6 +27,18 @@ public class User implements UserDetails {
     @CollectionTable(name = "favourites", joinColumns = @JoinColumn(name = "user_id"))
     private Set<Product> favouriteProducts;
 
+    @ElementCollection(targetClass = Product.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "cart", joinColumns = @JoinColumn(name = "user_id"))
+    private Set<Product> cartProducts;
+
+    public Set<Product> getCartProducts() {
+        return cartProducts;
+    }
+
+    public void setCartProducts(Set<Product> cartProducts) {
+        this.cartProducts = cartProducts;
+    }
+
     public Set<Product> getFavouriteProducts() {
         return favouriteProducts;
     }

@@ -17,5 +17,18 @@
         <input type="submit" width="300px" value="Добавить в избранное"/>
     </div>
 </form>
+
+<form method="post" action="addToCart">
+    <div class="form-group">
+        <input type="hidden" name="product" value=${product.id}>
+        <#if isAuthorised>
+        <input type="hidden" name="user" value=${user.id}>
+        </#if>
+    </div>
+    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+    <div>
+        <input type="submit" width="300px" value="Добавить в корзину"/>
+    </div>
+</form>
 <h1>${product.cost}</h1>
 </@c.page>

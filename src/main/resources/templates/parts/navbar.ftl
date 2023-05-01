@@ -28,10 +28,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/favourites/${user.id}">Favourites</a>
                 </li>
-                </#if>
                 <li class="nav-item">
-                    <a class="nav-link" href="/cart">Cart</a>
+                    <a class="nav-link" href="/cart/${user.id}">Cart</a>
                 </li>
+                </#if>
+                <#if !isAuthorised>
+                    <a class="nav-link" href="/cart">Cart</a>
+                </#if>
+
             </ul>
             <div class="navbar-text mr-3">${name}</div>
             <@l.logout />

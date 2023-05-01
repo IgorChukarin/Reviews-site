@@ -55,4 +55,19 @@ public class ProductsController {
         return "product";
     }
 
+    @PostMapping("addToCart")
+    public String addToCart(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
+        if (user == null) {
+            return "redirect:/login";
+        }
+        Set<Product> cartProducts = user.getCartProducts();
+        cartProducts.add(product);
+        user.setCartProducts(cartProducts);
+        userRepo.save(user);
+        model.addAttribute("product", product);
+        model.addAttribute("model", model);
+        System.out.println(product.getId() - user.getId());
+        return "product";
+    }
+
 }

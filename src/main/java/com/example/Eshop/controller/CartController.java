@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+
 @Controller
 @RequestMapping("/cart")
 public class CartController {
 
     @GetMapping
-    public String greeting() {
+    public String greeting(Model model) {
+        ArrayList<Product> products = new ArrayList<>();
+        model.addAttribute("products", products);
         return "cart";
     }
 

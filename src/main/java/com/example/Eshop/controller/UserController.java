@@ -56,4 +56,10 @@ public class UserController {
         userRepo.save(user);
         return "redirect:/user";
     }
+
+    @GetMapping("/userPage/{user}")
+    public String showUserPage(@PathVariable User user, Model model) {
+        model.addAttribute("userName", user.getUsername());
+        return "userPage";
+    }
 }

@@ -1,7 +1,6 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<h5>Cart</h5>
 <div class="card-columns">
     <#list products as product>
     <a href="/products/${product.id}">
@@ -17,11 +16,15 @@
         </div>
     </a>
 </div>
+
 <#else>
 No products
 </#list>
 </div>
 <div>
     <h1>Итог: ${totalCost}</h1>
+</div>
+<div>
+    <input type="submit" value="Оплатить">
 </div>
 </@c.page>

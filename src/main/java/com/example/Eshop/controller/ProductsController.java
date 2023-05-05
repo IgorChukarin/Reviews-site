@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.Set;
 
+/*!
+	\brief Класс контроллер для страницы с товарами
+
+	Позволяет просматривать все товары и переходить на страницу конкретного товара
+*/
 @Controller
 @RequestMapping("/products")
 public class ProductsController {
@@ -21,6 +26,7 @@ public class ProductsController {
     @Autowired
     private UserRepo userRepo;
 
+    /// \brief загружает страницу товаров
     @GetMapping
     public String greeting(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
         Iterable<Product> products = productRepo.findAll();
@@ -34,12 +40,14 @@ public class ProductsController {
         return "products";
     }
 
+    /// \brief загружает страницу конкретного товара
     @GetMapping("{product}")
     public String productForm(@PathVariable Product product, Model model) {
         model.addAttribute("model", model);
         return "product";
     }
 
+    /// \brief добавляет товар в избранное
     @PostMapping("addToFavourites")
     public String addToFavourites(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
         if (user == null) {
@@ -55,6 +63,7 @@ public class ProductsController {
         return "product";
     }
 
+    /// \brief добавляет товар в корзину
     @PostMapping("addToCart")
     public String addToCart(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
         if (user == null) {
@@ -69,5 +78,4 @@ public class ProductsController {
         System.out.println(product.getId() - user.getId());
         return "product";
     }
-
 }

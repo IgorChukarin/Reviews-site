@@ -18,6 +18,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+/*!
+	\brief Класс контроллер для страницы администратора
+
+	Класс содержит поведение для странницы администратора`
+*/
 @Controller
 public class MainController {
     @Autowired
@@ -26,11 +31,13 @@ public class MainController {
     @Value("${upload.path}")
     private String uploadPath;
 
+    /// \brief загружает страницу "home"
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
         return "greeting";
     }
 
+    /// \brief загружает страницу для администратора
     @GetMapping("/main")
     public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
         Iterable<Product> products = productRepo.findAll();
@@ -47,6 +54,7 @@ public class MainController {
         return "main";
     }
 
+    /// \brief добавляет товар в магазин
     @PostMapping("/main")
     public String add(@RequestParam String name,
                       @RequestParam Integer cost,
@@ -75,6 +83,7 @@ public class MainController {
         return "main";
     }
 
+    /// \brief удаляет продукт из магазина
     @PostMapping("delete")
     public String delete(@RequestParam Integer id, Model model) {
         productRepo.deleteById(id);
@@ -83,6 +92,7 @@ public class MainController {
         return "main";
     }
 
+    /// \brief обновляет информацию о товаре
     @PostMapping("update")
     public String update(@RequestParam Integer id,
                          @RequestParam(required = false, defaultValue = "") String name,

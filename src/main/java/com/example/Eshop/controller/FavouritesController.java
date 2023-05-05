@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
+/*!
+	\brief Контроллер избранного, обеспечивает взаимодействие пользоввателя с избранными товарами
+
+	Класс реалезует методы открытия избранных товаров авторзиванным пользователем
+*/
 @Controller
 @RequestMapping("/favourites")
 public class FavouritesController {
@@ -23,6 +28,7 @@ public class FavouritesController {
     @Autowired
     private UserRepo userRepo;
 
+    /// \brief загружает страницу с избранными товарами пользователя
     @GetMapping("{user}")
     public String greeting(@PathVariable User user, Model model) {
         Iterable<Product> products = user.getFavouriteProducts();

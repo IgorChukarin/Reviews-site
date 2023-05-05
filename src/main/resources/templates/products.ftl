@@ -9,6 +9,7 @@
     </div>
 </div>
 
+
 <div class="card-columns">
     <#list products as product>
     <a href="/products/${product.id}">

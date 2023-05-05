@@ -3,6 +3,11 @@ package com.example.Eshop;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/*!
+	\brief Класс приложения
+
+	Запускает веб-приложение
+*/
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {

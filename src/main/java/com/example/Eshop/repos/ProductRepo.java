@@ -5,6 +5,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+/*!
+	\brief Интерфейс описывающий поведение репозитория с товарами
+*/
 public interface ProductRepo extends CrudRepository<Product, Integer> {
     List<Product> findByTag(String tag);
 }

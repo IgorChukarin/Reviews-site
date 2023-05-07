@@ -80,7 +80,8 @@ public class MainController {
         productRepo.save(product);
         Iterable<Product> products = productRepo.findAll();
         model.put("products", products);
-        return "main";
+        return "redirect:/main"
+        ;
     }
 
     /// \brief удаляет продукт из магазина
@@ -89,7 +90,7 @@ public class MainController {
         productRepo.deleteById(id);
         Iterable<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
-        return "main";
+        return "redirect:/main";
     }
 
     /// \brief обновляет информацию о товаре
@@ -112,6 +113,6 @@ public class MainController {
         productRepo.save(productBeingChanged);
         Iterable<Product> products = productRepo.findAll();
         model.addAttribute("products", products);
-        return "main";
+        return "redirect:/main";
     }
 }

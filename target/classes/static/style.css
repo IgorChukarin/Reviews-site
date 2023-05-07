@@ -35,4 +35,19 @@
 }
 
 
+.card img{
+    transition: 0.2s;
+    border-radius: 3%;
+}
+
+.card img:hover{
+    transform: scale(1.1);
+}
+
+.card {
+    border: 0px;
+    bg-color: red;
+}
+
+
 

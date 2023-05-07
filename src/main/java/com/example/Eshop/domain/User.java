@@ -29,12 +29,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    @ElementCollection(targetClass = Product.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "favourites", joinColumns = @JoinColumn(name = "user_id"))
+    @ManyToMany
     private Set<Product> favouriteProducts;
 
-    @ElementCollection(targetClass = Product.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "cart", joinColumns = @JoinColumn(name = "user_id"))
+    @ManyToMany
     private Set<Product> cartProducts;
 
     public Set<Product> getCartProducts() {

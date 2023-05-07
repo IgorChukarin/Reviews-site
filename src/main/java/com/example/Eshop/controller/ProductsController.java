@@ -60,7 +60,7 @@ public class ProductsController {
         userRepo.save(user);
         model.addAttribute("product", product);
         model.addAttribute("model", model);
-        return "product";
+        return "redirect:/products/" + product.getId();
     }
 
     /// \brief добавляет товар в корзину
@@ -76,6 +76,6 @@ public class ProductsController {
         model.addAttribute("product", product);
         model.addAttribute("model", model);
         System.out.println(product.getId() - user.getId());
-        return "product";
+        return "redirect:/products/" + product.getId();
     }
 }

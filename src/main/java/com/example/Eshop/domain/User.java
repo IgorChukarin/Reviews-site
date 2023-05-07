@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /*!
 	\brief Класс пользователя, описывающий сущность
@@ -30,9 +32,11 @@ public class User implements UserDetails {
     private Set<Role> roles;
 
     @ManyToMany
+    @OrderBy
     private Set<Product> favouriteProducts;
 
     @ManyToMany
+    @OrderBy
     private Set<Product> cartProducts;
 
     public Set<Product> getCartProducts() {

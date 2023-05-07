@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /*!
 	\brief Класс контроллер для страницы с товарами
@@ -31,7 +33,7 @@ public class ProductsController {
     public String greeting(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
         Iterable<Product> products = productRepo.findAll();
         if (filter != null && !filter.isEmpty()) {
-            products = productRepo.findByTag(filter);
+            products = productRepo.findByName(filter);
         } else {
             products = productRepo.findAll();
         }
@@ -63,6 +65,20 @@ public class ProductsController {
         return "redirect:/products/" + product.getId();
     }
 
+    @PostMapping("deleteFromFavourites")
+    public String deleteFromFavourites(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
+        if (user == null) {
+            return "redirect:/login";
+        }
+        Set<Product> favouriteProducts = user.getFavouriteProducts();
+        favouriteProducts.remove(product);
+        user.setFavouriteProducts(favouriteProducts);
+        userRepo.save(user);
+        model.addAttribute("product", product);
+        model.addAttribute("model", model);
+        return "redirect:/products/" + product.getId();
+    }
+
     /// \brief добавляет товар в корзину
     @PostMapping("addToCart")
     public String addToCart(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
@@ -71,6 +87,21 @@ public class ProductsController {
         }
         Set<Product> cartProducts = user.getCartProducts();
         cartProducts.add(product);
+        user.setCartProducts(cartProducts);
+        userRepo.save(user);
+        model.addAttribute("product", product);
+        model.addAttribute("model", model);
+        System.out.println(product.getId() - user.getId());
+        return "redirect:/products/" + product.getId();
+    }
+
+    @PostMapping("deleteFromCart")
+    public String deleteFromCart(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
+        if (user == null) {
+            return "redirect:/login";
+        }
+        Set<Product> cartProducts = user.getCartProducts();
+        cartProducts.remove(product);
         user.setCartProducts(cartProducts);
         userRepo.save(user);
         model.addAttribute("product", product);

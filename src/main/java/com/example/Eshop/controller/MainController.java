@@ -1,7 +1,9 @@
 package com.example.Eshop.controller;
 
 import com.example.Eshop.domain.Product;
+import com.example.Eshop.domain.User;
 import com.example.Eshop.repos.ProductRepo;
+import com.example.Eshop.repos.UserRepo;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +30,9 @@ public class MainController {
     @Autowired
     private ProductRepo productRepo;
 
+    @Autowired
+    private UserRepo userRepo;
+
     @Value("${upload.path}")
     private String uploadPath;
 
@@ -43,7 +48,7 @@ public class MainController {
         Iterable<Product> products = productRepo.findAll();
 
         if (filter != null && !filter.isEmpty()) {
-            products = productRepo.findByTag(filter);
+            products = productRepo.findByName(filter);
         } else {
             products = productRepo.findAll();
         }
@@ -87,6 +92,15 @@ public class MainController {
     /// \brief удаляет продукт из магазина
     @PostMapping("delete")
     public String delete(@RequestParam Integer id, Model model) {
+        Iterable<User> users = userRepo.findAll();
+        for (User user : users) {
+            if (user.getFavouriteProducts().contains(id)) {
+                user.getFavouriteProducts().remove(id);
+            }
+            if (user.getCartProducts().contains(id)) {
+                user.getCartProducts().remove(id);
+            }
+        }
         productRepo.deleteById(id);
         Iterable<Product> products = productRepo.findAll();
         model.addAttribute("products", products);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
+import java.util.TreeSet;
 
 /*!
 	\brief Контроллер избранного, обеспечивает взаимодействие пользоввателя с избранными товарами
@@ -32,6 +33,7 @@ public class FavouritesController {
     @GetMapping("{user}")
     public String greeting(@PathVariable User user, Model model) {
         Iterable<Product> products = user.getFavouriteProducts();
+        System.out.println(user.getFavouriteProducts().getClass());
         model.addAttribute("products", products);
         return "favourites";
     }

@@ -1,19 +1,18 @@
 package com.example.Eshop.controller;
 
 import com.example.Eshop.domain.Product;
-import com.example.Eshop.domain.Role;
 import com.example.Eshop.domain.User;
 import com.example.Eshop.repos.ProductRepo;
 import com.example.Eshop.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 /*!
 	\brief Класс контроллер для страницы с товарами
@@ -45,37 +44,35 @@ public class ProductsController {
     /// \brief загружает страницу конкретного товара
     @GetMapping("{product}")
     public String productForm(@PathVariable Product product, Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userRepo.findByUsername(currentUserName);
+        if (currentUser != null) {
+            if (currentUser.getFavouriteProducts().contains(product)) {
+                model.addAttribute("message", "delete from favourites");
+            } else {
+                model.addAttribute("message", "add to favourites");
+            }
+        } else {
+            model.addAttribute("message", "add to favourites");
+        }
         model.addAttribute("model", model);
         return "product";
     }
 
-    /// \brief добавляет товар в избранное
-    @PostMapping("addToFavourites")
-    public String addToFavourites(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
-        if (user == null) {
-            return "redirect:/login";
-        }
-        System.out.println(user.getUsername() + " - " + product.getId());
-        Set<Product> favouriteProducts = user.getFavouriteProducts();
-        favouriteProducts.add(product);
-        user.setFavouriteProducts(favouriteProducts);
-        userRepo.save(user);
-        model.addAttribute("product", product);
-        model.addAttribute("model", model);
-        return "redirect:/products/" + product.getId();
-    }
-
-    @PostMapping("deleteFromFavourites")
-    public String deleteFromFavourites(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
+    @PostMapping("interactWithFavourites")
+    public String interactWithFavourites(@RequestParam Product product, @RequestParam(required = false) User user, Model model) {
         if (user == null) {
             return "redirect:/login";
         }
         Set<Product> favouriteProducts = user.getFavouriteProducts();
-        favouriteProducts.remove(product);
+        if (user.getFavouriteProducts().contains(product)) {
+            favouriteProducts.remove(product);
+        } else {
+            favouriteProducts.add(product);
+        }
         user.setFavouriteProducts(favouriteProducts);
         userRepo.save(user);
-        model.addAttribute("product", product);
-        model.addAttribute("model", model);
         return "redirect:/products/" + product.getId();
     }
 

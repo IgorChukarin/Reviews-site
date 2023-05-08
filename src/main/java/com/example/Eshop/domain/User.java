@@ -31,11 +31,11 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @OrderBy
     private Set<Product> favouriteProducts;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @OrderBy
     private Set<Product> cartProducts;
 
@@ -139,6 +139,7 @@ public class User implements UserDetails {
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
     }
+
 }
 
 

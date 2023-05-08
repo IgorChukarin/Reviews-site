@@ -39,6 +39,11 @@
     border-width: 0px;
 }
 
+.card img{
+    border-radius: 10px;
+    border-width: 0px;
+}
+
 .card-columns div{
     transition: 0.2s;
     border-radius: 3%;

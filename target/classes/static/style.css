@@ -35,17 +35,30 @@
 }
 
 
-.card img{
+.card {
+    border-width: 0px;
+}
+
+.card-columns div{
     transition: 0.2s;
     border-radius: 3%;
+    border-width: 0px
 }
 
-.card img:hover{
+.card-columns span{
+    color: #444444;
+}
+
+.card-columns b{
+    color: #444444;
+}
+
+.card-columns a:hover{
+    color: #444444;
+}
+
+.card-columns div:hover{
     transform: scale(1.1);
-}
-
-.card {
-    border: 0px;
 }
 
 

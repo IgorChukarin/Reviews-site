@@ -17,7 +17,7 @@
     </div>
     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     <div>
-        <input type="submit" value="${message?ifExists}">
+        <input type="submit" value="${message?ifExists}" style="font-size: 25px">
     </div>
 </form>
 

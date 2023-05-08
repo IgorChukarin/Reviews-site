@@ -1,0 +1,26 @@
+
+J
+java:S1191"5Use classes from the Java API instead of Sun classes.(ÇóÃ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(è·›™úÿÿÿÿ
+g
+java:S2259G"RA "NullPointerException" could be thrown; "getOriginalFilename()" can return null.(€Ÿ¹
+R
+java:S3655u"7Call "Optional#isPresent()" before accessing the value.(«íšªùÿÿÿÿ
+W
+java:S18540"<Remove this useless assignment to local variable "products".(¶Íû³üÿÿÿÿ
+A
+java:S1075Q"&Remove this hard-coded path-delimiter.(õƒÕÖıÿÿÿÿ
+B
+java:S2175a",A "Set<Product>" cannot contain a "Integer".(±©ƒ•
+G
+java:S2175b",A "Set<Product>" cannot contain a "Integer".(˜ÎÙåúÿÿÿÿ
+G
+java:S2175d",A "Set<Product>" cannot contain a "Integer".(öø•Öùÿÿÿÿ
+B
+java:S2175e",A "Set<Product>" cannot contain a "Integer".(èËë‹
+D
+java:S1940y")Use the opposite operator ("!=") instead.(€÷œúÿÿÿÿ
+i
+java:S1128"MRemove this unused import 'com.sun.org.apache.xpath.internal.operations.Mod'.(ÇóÃ8ŒœÈ²ÿ0
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ŒœÈ²ÿ0

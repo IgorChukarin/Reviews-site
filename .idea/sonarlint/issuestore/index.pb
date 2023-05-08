@@ -13,3 +13,17 @@ g
 7src/main/java/com/example/Eshop/service/MailSender.java,6\b\6b3cecab03ce6e671a8ce5128770dac8d407dedc
 e
 5src/main/java/com/example/Eshop/config/MvcConfig.java,1\9\19c39019a203c70aec97560cb6e297de4d752076
+v
+Fsrc/main/java/com/example/Eshop/controller/RegistrationController.java,d\d\dde37b07568951b0aa22e1f0824a0026354b5dfc
+t
+Dsrc/main/java/com/example/Eshop/controller/FavouritesController.java,5\e\5e673eb73c52005af164485d41f0aad2e9870dd7
+n
+>src/main/java/com/example/Eshop/controller/MainController.java,f\8\f840fde8d8735a2b6d41cb08891dd25af12a6f8c
+n
+>src/main/java/com/example/Eshop/controller/CartController.java,4\7\47b9183c58dafe15422757093f24213812c47486
+`
+0src/main/java/com/example/Eshop/Application.java,7\b\7bdc561ab1db1020556233746b6794b0c4f0deb8
+c
+3src/main/java/com/example/Eshop/domain/Product.java,a\b\abb1bc534ef588ee03399d8ab09f1d587eca7002
+n
+>src/main/java/com/example/Eshop/controller/UserController.java,0\7\07ab3fdce8c3bea9932e81fa14dbf83dd5056ca5

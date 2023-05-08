@@ -49,12 +49,12 @@ public class ProductsController {
         User currentUser = userRepo.findByUsername(currentUserName);
         if (currentUser != null) {
             if (currentUser.getFavouriteProducts().contains(product)) {
-                model.addAttribute("message", "delete from favourites");
+                model.addAttribute("message", "★");
             } else {
-                model.addAttribute("message", "add to favourites");
+                model.addAttribute("message", "☆");
             }
         } else {
-            model.addAttribute("message", "add to favourites");
+            model.addAttribute("message", "☆");
         }
         model.addAttribute("model", model);
         return "product";

@@ -13,17 +13,16 @@
 <div class="card-columns">
     <#list products as product>
     <a href="/products/${product.id}">
-    <div class="card my-3">
-        <#if product.filename??>
-        <img src="/img/${product.filename}" class="card-img-top">
+        <div class="card my-3">
+            <#if product.filename??>
+            <img src="/img/${product.filename}" class="card-img-top">
         </#if>
-    <div class="m-2">
-        <span>${product.name}</span>
-    </div>
-    <div class="m-2">
-        <b>${product.cost} ₽</b>
-    </div>
-
+        <section class="m-1" style="font-size: 20px;">
+            <span>${product.name}</span>
+        </section>
+        <section class="m-1" style="font-size: 20px;">
+            <span>${product.cost} ₽</span>
+        </section>
     </a>
 </div>
 <#else>

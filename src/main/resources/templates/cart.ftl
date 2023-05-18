@@ -1,30 +1,33 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<div class="card-columns">
-    <#list products as product>
+<div class="cart">
+  <#list products as product>
+  <section class="cart2">
     <a href="/products/${product.id}">
-        <div class="card my-3">
+          <div class="card" style="margin-left: 0px; margin-right: 0px">
             <#if product.filename??>
             <img src="/img/${product.filename}" class="card-img-top">
-        </#if>
-        <div class="m-2">
-            <span>${product.name}</span>
-        </div>
-        <div class="m-2">
-            <b>${product.cost} ₽</b>
-        </div>
-    </a>
-</div>
+          </#if>
+            <div style="flex-direction: column">
 
-<#else>
-No products
+                <span>${product.name}</span>
+                <hr style="border-width: 0px">
+                <b>${product.cost}₽</b>
+
+            </div>
+          </div>
+    </a>
+  </section>
+  <#else>
+  No products
 </#list>
 </div>
-<div>
+</div>
+<div style="margin-left: 160px">
     <h1>Итог: ${totalCost}</h1>
 </div>
-<div>
+<div style="margin-left: 160px">
     <input type="submit" value="Оплатить">
 </div>
 </@c.page>

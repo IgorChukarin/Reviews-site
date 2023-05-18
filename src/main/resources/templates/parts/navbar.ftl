@@ -2,7 +2,7 @@
 <#import "login.ftl" as l>
 
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pl-0 pr-0">
         <a class="navbar-brand" href="/">E-shop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

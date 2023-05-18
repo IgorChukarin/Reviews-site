@@ -9,12 +9,12 @@
             <#if product.filename??>
             <img src="/img/${product.filename}" class="card-img-top">
         </#if>
-        <div class="m-2">
+        <section class="m-1" style="font-size: 20px;">
             <span>${product.name}</span>
-        </div>
-        <div class="m-2">
-            <b>${product.cost} ₽</b>
-        </div>
+        </section>
+        <section class="m-1" style="font-size: 20px;">
+            <span>${product.cost} ₽</span>
+        </section>
     </a>
 </div>
 <#else>

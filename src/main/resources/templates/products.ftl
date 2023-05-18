@@ -10,25 +10,23 @@
 </div>
 
 
-<section class="card-columns">
+<div class="card-columns">
     <#list products as product>
-    <div>
-        <a href="/products/${product.id}">
-        <section class="card">
+    <a href="/products/${product.id}">
+        <div class="card my-3">
             <#if product.filename??>
             <img src="/img/${product.filename}" class="card-img-top">
-            </#if>
-        </section>
-        <section class="m-2">
+        </#if>
+        <section class="m-1" style="font-size: 20px;">
             <span>${product.name}</span>
         </section>
-        <section class="m-2">
-            <b>${product.cost} ₽</b>
+        <section class="m-1" style="font-size: 20px;">
+            <span>${product.cost} ₽</span>
         </section>
-        </a>
-    </div>
+    </a>
+</div>
 <#else>
 No products
 </#list>
-</section>
+</div>
 </@c.page>

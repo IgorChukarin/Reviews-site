@@ -31,14 +31,14 @@
 <#if !isAuthorised>
 <form action="/logout" method="post">
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <button class="btn btn-primary" type="submit">B</button>
+    <button class="btn btn-primary" type="submit">Log in</button>
 </form>
 </#if>
 
 <#if isAuthorised>
 <a href="/user/userPage/${user.id}">
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <button class="btn btn-primary" type="">BLOG</button>
+    <button class="btn btn-primary" type="">${name}</button>
 </a>
 </#if>
 </#macro>

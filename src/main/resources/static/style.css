@@ -35,18 +35,108 @@
 }
 
 
-.card img{
-    transition: 0.2s;
-    border-radius: 3%;
+.card {
+    border-width: 0px;
 }
 
-.card img:hover{
+.card img{
+    border-radius: 10px;
+    border-width: 0px;
+}
+
+.card-columns div{
+    transition: 0.2s;
+    border-radius: 3%;
+    border-width: 0px
+}
+
+.card-columns span{
+    color: #444444;
+}
+
+.card-columns b{
+    color: #444444;
+}
+
+.card-columns a:hover{
+    color: #444444;
+}
+
+.card-columns div:hover{
+    transform: scale(1.01);
+}
+
+.cart div{
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px;
+    background-color: #f2f2f2;
+}
+
+.cart img{
+    width: 170px;
+    height: 170px;
+
+}
+
+
+.cart span{
+    font-family: "Century Gothic", serif;
+    color: #444444;
+}
+
+.cart a:hover{
+    color: #444444;
+}
+
+.cart a{
+    color: #444444;
+}
+/*---------------------*/
+.toyPageText p{
+    margin: 0px;
+    font-family: "Century Gothic", serif;
+    font-size: 20px;
+}
+
+.toyPageText h1{
+    font-family: "Century Gothic", serif;
+    padding-left: 40px;
+}
+
+.toyPageImg {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 5vw);
+    grid-gap: 0px;
+    margin-bottom: 10px;
+}
+
+.toyPageImg img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.toyPageImg img:hover{
     transform: scale(1.1);
 }
 
-.card {
-    border: 0px;
+.gallery__item--1 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 10;
 }
 
 
+.cart2 {
+    transition: 0.2s;
+}
 
+.cart2:hover{
+    transform: scale(1.03);
+}

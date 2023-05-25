@@ -3,7 +3,7 @@
 
 <@c.page>
 
-<section class="toyPageImg">
+<section class="toyPageImg" style="margin-bottom: 0px">
 
     <figure class="gallery__item gallery__item--1">
             <img src="/img/${product.filename}" class="gallery__img" alt="Image 1">
@@ -19,16 +19,7 @@
             <p style="display: inline-block; ">Высота: 28см</p>
             </br>
             <br>
-            <p style="display: inline-block; ">Детализация</p>
-            </br>
-            <br>
-            <p style="display: inline-block; ">Полностью подвижное бесшовное тело</p>
-            </br>
-            <br>
             <p style="display: inline-block; ">Материал: пластик</p>
-            </br>
-            <br>
-            <p style="display: inline-block; "></p>
             </br>
         </div>
 </section>

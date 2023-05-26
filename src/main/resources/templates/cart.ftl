@@ -27,7 +27,7 @@
 <div style="margin-left: 160px">
     <h1>Итог: ${totalCost}</h1>
 </div>
-<div style="margin-left: 160px">
+<div style="margin-left: 160px; margin-bottom: 80px">
     <input type="submit" value="Оплатить">
 </div>
 </@c.page>

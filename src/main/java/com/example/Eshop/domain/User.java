@@ -1,6 +1,7 @@
 package com.example.Eshop.domain;
 
 import com.mysql.cj.xdevapi.Session;
+import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,9 +11,6 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-/*!
-	\brief Класс пользователя, описывающий сущность
-*/
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
@@ -21,9 +19,14 @@ public class User implements UserDetails {
     private Long id;
     private String username;
     private String password;
+
+    @Column(columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean active;
 
+    @Nullable
     private String email;
+
+    @Nullable
     private String activationCode;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)

@@ -1,6 +1,5 @@
 package com.example.Eshop.domain;
 
-import com.mysql.cj.xdevapi.Session;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,8 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 @Entity
 @Table(name = "usr")

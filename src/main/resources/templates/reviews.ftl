@@ -12,7 +12,28 @@
 <br>
 <br>
     <div class="row">
-        <#list reviews as review>
+        <#list pinnedReviews as pinnedReview>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">${pinnedReview.header}</h5>
+                        <p class="card-text">${pinnedReview.text}</p>
+                        <div class="rate readonly" data-rate="${pinnedReview.stars}">
+                            <#-- Create star elements dynamically based on review.rating -->
+                            <#assign stars = pinnedReview.stars?number>
+                            <#list 1..stars?int as i>
+                                <label>★</label>
+                            </#list>
+                            <#if (stars - stars?int) != 0>
+                                <label>★</label>
+                            </#if>
+                        </div>
+                        <p class="card-text"><small class="text-muted">${pinnedReview.user.username}</small></p>
+                    </div>
+                </div>
+            </div>
+        </#list>
+        <#list otherReviews as review>
             <div class="col-md-6">
                 <div class="card mb-4">
                     <div class="card-body">

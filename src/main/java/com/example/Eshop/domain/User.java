@@ -42,6 +42,9 @@ public class User implements UserDetails {
     @OrderBy
     private Set<Product> cartProducts;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Review> reviews;
+
     public Set<Product> getCartProducts() {
         return cartProducts;
     }

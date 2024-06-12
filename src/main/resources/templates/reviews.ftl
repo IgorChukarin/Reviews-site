@@ -28,7 +28,7 @@
                                 <label>★</label>
                             </#if>
                         </div>
-                        <p class="card-text"><small class="text-muted">username</small></p>
+                        <p class="card-text"><small class="text-muted">${review.user.username}</small></p>
                     </div>
                 </div>
             </div>

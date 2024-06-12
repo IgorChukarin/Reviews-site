@@ -1,9 +1,9 @@
-INSERT INTO usr (id, username, password) VALUES
-(1, 'admin', 'password'),
-(2, 'Vasiliy Chainikov', 'password'),
-(3, 'Petr Molotilov', 'password'),
-(4, 'Alexandra Punish', 'password'),
-(5, 'Evita Degunina', 'password');
+INSERT INTO usr (username, password) VALUES
+('admin', 'password'),
+('Vasiliy Chainikov', 'password'),
+('Petr Molotilov', 'password'),
+('Alexandra Punish', 'password'),
+('Evita Degunina', 'password');
 
 INSERT INTO user_role (user_id, roles) VALUES
 (1, 'ADMIN'),

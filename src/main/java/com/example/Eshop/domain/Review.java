@@ -16,6 +16,8 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String header;
+
+    @Column(length = 1000)
     private String text;
     private int stars;
 

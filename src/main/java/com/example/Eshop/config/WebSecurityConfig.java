@@ -28,16 +28,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/registration", "/static/**", "/main", "/activate/*", "/reviews").permitAll()
-                    .anyRequest().authenticated()
+                .antMatchers("/", "/registration", "/static/**", "/main", "/activate/*", "/reviews", "/h2-console/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                    .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
                 .and()
-                    .logout()
-                    .permitAll();
+                .logout()
+                .permitAll()
+                .and()
+                .csrf()
+                .ignoringAntMatchers("/h2-console/**") // Отключить CSRF защиту только для H2 Console
+                .and()
+                .headers().frameOptions().disable(); // Отключить ограничения для фреймов
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

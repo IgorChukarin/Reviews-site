@@ -7,6 +7,10 @@
 </div>
 <br>
 <div class="container">
+<br>
+<a href="/leave-review" class="btn btn-warning">Оставить отзыв</a>
+<br>
+<br>
     <div class="row">
         <#list reviews as review>
             <div class="col-md-6">
@@ -14,8 +18,15 @@
                     <div class="card-body">
                         <h5 class="card-title">${review.header}</h5>
                         <p class="card-text">${review.text}</p>
-                        <div>
-
+                        <div class="rate readonly" data-rate="${review.stars}">
+                            <#-- Create star elements dynamically based on review.rating -->
+                            <#assign stars = review.stars?number>
+                            <#list 1..stars?int as i>
+                                <label>★</label>
+                            </#list>
+                            <#if (stars - stars?int) != 0>
+                                <label>★</label>
+                            </#if>
                         </div>
                         <p class="card-text"><small class="text-muted">username</small></p>
                     </div>

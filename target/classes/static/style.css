@@ -172,3 +172,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.rate {
+    display: flex;
+    align-items: center;
+}
+
+.rate label {
+    font-size: 30px;
+    color: #ffc700;
+    margin-right: 5px;
+}

@@ -183,3 +183,11 @@
     color: #ffc700;
     margin-right: 5px;
 }
+
+.organization-response {
+    background-color: #f9f9f9; /* Светло-серый фон */
+    color: #555; /* Текст немного темнее */
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

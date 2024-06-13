@@ -85,4 +85,12 @@ public class ReviewController {
         reviewRepo.save(review);
         return "redirect:/admin/reviews";
     }
+
+    @PostMapping("/add-response")
+    public String addResponse(@RequestParam("reviewId") Integer reviewId, @RequestParam("response") String response) {
+        Review review = reviewRepo.findById(reviewId).orElseThrow(() -> new IllegalArgumentException("Invalid review Id:" + reviewId));
+        review.setAnswer(response);
+        reviewRepo.save(review);
+        return "redirect:/admin/reviews";
+    }
 }

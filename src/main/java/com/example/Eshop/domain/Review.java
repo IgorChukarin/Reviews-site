@@ -27,4 +27,7 @@ public class Review {
 
     @Column(columnDefinition = "boolean default false")
     private Boolean pinned;
+
+    @Column(length = 1000)
+    private String answer;
 }

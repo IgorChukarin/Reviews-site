@@ -29,6 +29,14 @@
                             </#if>
                         </div>
                         <p class="card-text"><small class="text-muted">${pinnedReview.user.username}</small></p>
+                        <#if pinnedReview.answer?has_content>
+                            <p class="card-text" style="color: gray; cursor: pointer;" onclick="toggleResponse(this)">
+                                <small>– Посмотреть ответ организации</small>
+                            </p>
+                            <div class="organization-response" style="display: none;">
+                                <p>${review.answer}}</p>
+                            </div>
+                        </#if>
                     </div>
                 </div>
             </div>
@@ -50,6 +58,14 @@
                             </#if>
                         </div>
                         <p class="card-text"><small class="text-muted">${review.user.username}</small></p>
+                        <#if review.answer?has_content>
+                            <p class="card-text" style="color: gray; cursor: pointer;" onclick="toggleResponse(this)">
+                                – Посмотреть ответ организации
+                            </p>
+                            <div class="organization-response" style="display: none;">
+                                <p>${review.answer}</p>
+                            </div>
+                        </#if>
                     </div>
                 </div>
             </div>
@@ -57,4 +73,18 @@
     </div>
 </div>
 <br>
+
+<script>
+function toggleResponse(element) {
+    var response = element.nextElementSibling;
+    if (response.style.display === "none") {
+        response.style.display = "block";
+        element.textContent = '– Скрыть ответ организации';
+    } else {
+        response.style.display = "none";
+        element.textContent = '– Посмотреть ответ организации';
+    }
+}
+</script>
+
 </@c.page>
